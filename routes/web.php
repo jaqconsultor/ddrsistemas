@@ -48,9 +48,17 @@ Route::get('/video', function () {
     return view('video');
 })->name('video');
 
+Route::get('/recursos', function () {
+    return view('recursos');
+})->name('recursos');
+
 Route::get('/faq', function () {
     return view('faq');
 })->name('faq');
+
+Route::get('/sistemas', function () {
+    return view('sistemas');
+})->name('sistemas');
 
 
 //Route::get('/', [CartController::class, 'shop'])->name('shop')->middleware('auth');

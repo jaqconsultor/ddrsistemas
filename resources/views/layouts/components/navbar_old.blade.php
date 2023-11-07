@@ -59,10 +59,8 @@
                         <a class="nav-link" href="/">Inicio</a>
                     </li> -->
 
-                    
-
                     <li class="nav-item">
-                        <a class="nav-link" href="/about">Acerca De</a>
+                        <a class="nav-link" href="/about">Nosotros</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="/services">Servicios</a>
@@ -73,8 +71,12 @@
 <!--                    <li class="nav-item">
                         <a class="nav-link" href="/contacts">Contacto</a>
                     </li> -->
-                     <li class="nav-item">
+    <!--                 <li class="nav-item">
                         <a class="nav-link" href="/video">Imágenes</a>
+                    </li> -->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/recursos">Recursos</a>
                     </li> 
 
                 </ul>
@@ -97,34 +99,34 @@
                        aria-haspopup="true" aria-expanded="false"
                     >
                     <span class="badge badge-pill text-black">
-                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i><span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"><?php echo e(\Cart::getTotalQuantity()); ?></span>
+                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i><span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">{{ \Cart::getTotalQuantity()}}</span>
                     </span>
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="width: 450px; padding: 0px; border-color: #9DA0A2">
                     <ul class="list-group" style="margin: 20px;">
-                        <?php echo $__env->make('layouts.partials.cart-drop', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                        @include('layouts.partials.cart-drop')
                     </ul>
 
                 </div>
                 
-                <?php if(Route::has('login')): ?>
-                    <?php if(auth()->guard()->check()): ?>                            
-                        <a class="nav-icon text-decoration-none" href="<?php echo e(url('/admin/dashboard')); ?>">
+                @if (Route::has('login'))
+                    @auth                            
+                        <a class="nav-icon text-decoration-none" href="{{ url('/admin/dashboard') }}">
                             <i class="fa fa-fw fa-user text-dark mr-3"></i>
                             <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
                         </a>
-                    <?php else: ?>
-                        <a class="nav-icon position-relative text-decoration-none" href="<?php echo e(route('login')); ?>">
+                    @else
+                        <a class="nav-icon position-relative text-decoration-none" href="{{ route('login') }}">
                             <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark btn btn-primary">Acceso</span>
                         </a>
-                        <?php if(Route::has('register')): ?>
-                        <a class="nav-icon position-relative text-decoration-none mx-5" href="<?php echo e(route('register')); ?>">
+                        @if (Route::has('register'))
+                        <a class="nav-icon position-relative text-decoration-none mx-5" href="{{ route('register') }}">
                             <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark btn btn-info">Registro</span>
                         </a>
-                        <?php endif; ?>
-                    <?php endif; ?>
-                <?php endif; ?>                
+                        @endif
+                    @endauth
+                @endif                
 
             </div>
         </div>
@@ -171,4 +173,4 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <?php /**PATH C:\DDRSistemasWeb\repo\ddrsistemas\resources\views/layouts/components/navbar.blade.php ENDPATH**/ ?>
+    

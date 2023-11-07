@@ -18,12 +18,12 @@
 
     <div class="row">
 
-            <div class="col-md-4 pt-5">
+            <div class="col-md-3 pt-5">
                 <h2 class="h2 text-light border-bottom pb-3 border-light logo">DDRSistemas</h2>
                 <ul class="list-unstyled text-light footer-link-list">
                     <li>
                         <i class="fas fa-map-marker-alt fa-fw"></i>
-                        Caracas, Venezuela, RIF: J-31512955-8
+                        Caracas, Venezuela, <br>RIF: J-31512955-8
                     </li>
                     <li>
                         <i class="fa fa-phone fa-fw"></i>
@@ -38,7 +38,7 @@
                         <a class="text-decoration-none" href="mailto:ddrsistemas@gmail.com">ddrsistemas@gmail.com</a>
                     </li>
 
-                    <li>
+<!--                    <li>
                         Zelle
                         <i class="fa fa-envelope fa-fw"></i>
                         <a class="text-decoration-none" href="mailto:ddrsistemas@gmail.com">ddrsistemas@gmail.com</a>
@@ -49,27 +49,48 @@
                         <i class="fa fa-envelope fa-fw"></i>
                         <a class="text-decoration-none" href="mailto:ddrsystems@gmail.com">ddrsystems@gmail.com</a>
                     </li>
-
+-->
                 </ul>
             </div>
 
-            <div class="col-md-4 pt-5">
-<!--                <h2 class="h2 text-light border-bottom pb-3 border-light">Productos</h2>
+            <div class="col-md-3 pt-5">
+                <h2 class="h2 text-light border-bottom pb-3 border-light">Departamentos</h2>
                 <ul class="list-unstyled text-light footer-link-list">
-                    <li><a class="text-decoration-none" href="/products">Software</a></li>
-                </ul> -->
+                <li>
+                    Ventas<br><i class="fa fa-envelope fa-fw"></i><br>
+                        <a class="text-decoration-none" href="mailto:ventas@ddrsistemas.com">ventas@ddrsistemas.com</a>
+                    </li>
+                    <li>
+                    Administración<br><i class="fa fa-envelope fa-fw"></i><br>
+                        <a class="text-decoration-none" href="mailto:administracion@ddrsistemas.com">administracion@ddrsistemas.com</a>
+                    </li>
+                    <li>
+                        Directivo<br><i class="fa fa-envelope fa-fw"></i><br>
+                        <a class="text-decoration-none" href="mailto:director@ddrsistemas.com">director@ddrsistemas.com</a>
+                    </li>
+                </ul> 
             </div>
 
-            <div class="col-md-4 pt-5">
-                <h2 class="h2 text-light border-bottom pb-3 border-light">Información Adicional</h2>
+            <div class="col-md-3 pt-5">
+                <h2 class="h2 text-light border-bottom pb-3 border-light">Productos</h2>
+                <ul class="list-unstyled text-light footer-link-list">
+                    <li><a class="text-decoration-none" href="/products">GinecoReport</a></li>
+                    <li><a class="text-decoration-none" href="/products">PediReport</a></li>
+                    <li><a class="text-decoration-none" href="/products">OrthoReport</a></li>
+                    <li><a class="text-decoration-none" href="/products">NeumoReport</a></li>
+                </ul> 
+            </div>
+
+            <div class="col-md-3 pt-5">
+                <h2 class="h2 text-light border-bottom pb-3 border-light">Enlaces</h2>
                 <ul class="list-unstyled text-light footer-link-list">
                     <li><a class="text-decoration-none" href="/">Inicio</a></li>
-                    <li><a class="text-decoration-none" href="/about">Acerca De</a></li>
+                    <li><a class="text-decoration-none" href="/about">Nosotros</a></li>
 <!--                    <li><a class="text-decoration-none" href="/services">Servicios</a></li> -->
                     <li><a class="text-decoration-none" href="/products">Productos</a></li>
                     <!-- <li><a class="text-decoration-none" href="/contacts">Contactos</a></li> -->
-                    <li><a class="text-decoration-none" href="/video">Imágenes</a></li> 
-                    <!-- <li><a class="text-decoration-none" href="/faq">FAQ</a></li> -->
+                    <!--<li><a class="text-decoration-none" href="/video">Imágenes</a></li> -->
+                     <li><a class="text-decoration-none" href="/recursos">Recursos</a></li> 
                 </ul>
             </div>
 
@@ -112,16 +133,22 @@
     <div class="w-100 bg-black py-3">
         <div class="container">
             <div class="row pt-2">
-                <div class="col-3">
+                <div class="col-4">
                     <p class="text-left text-light">
                         Copyright &copy; 2023 DDR Sistemas C.A. 
                     </p>
                 </div>
-                <div class="col-9">
+                <div class="col-3">
+                </div>
+                <div class="col-5">
                     <p class="text-left text-light">
                         <!-- Desing by <a href="https://jaqconsultor.tech" target="_blank">JAQConsultor.tech</a> & TytpeRosales -->
-                        Pago Seguro con 
-                        <img class="col-md-9 card-img rounded-0 img-fluid" src="assets/img/pagos.png">
+                        <span>Pago Seguro 
+                        <img src="botondepago.jpg" height="25"> 
+                        <img src="modalidad.jpg" height="25">
+                        <img src="zelle.png" height="25">
+                        <img src="paypal.png" height="25">
+                    </span>
                     </p>
                 </div>
             </div>

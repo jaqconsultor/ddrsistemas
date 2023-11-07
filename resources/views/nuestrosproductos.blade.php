@@ -17,6 +17,7 @@
                         <!--End Controls-->
 
                         <!--Carousel Wrapper-->
+                        <a href="/products" >
                         <div class="col">
                             <div class="carousel slide carousel-multi-item pt-2 pt-md-0" id="multi-item-example" data-bs-ride="carousel">
                                 <!--Slides-->
@@ -26,16 +27,20 @@
                                     <div class="carousel-item active">
                                         <div class="row">
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/software/cardioreport_0.jpg" alt="Brand Logo"></a>
+                                                <img class="img-fluid brand-img" src="assets/img/software/cardioreport_0.jpg" alt="Brand Logo">
+                                                <h5>CardioReport</h5>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/software/dermoreport.jpg" alt="Brand Logo"></a>
+                                                <img class="img-fluid brand-img" src="assets/img/software/dermoreport.jpg" alt="Brand Logo">
+                                                <h5>DermaReport</h5>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/software/ecoreport.jpg" alt="Brand Logo"></a>
+                                                <img class="img-fluid brand-img" src="assets/img/software/ecoreport.jpg" alt="Brand Logo">
+                                                <h5>EcoReport</h5>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/software/estheticreport.jpg" alt="Brand Logo"></a>
+                                                <img class="img-fluid brand-img" src="assets/img/software/estheticreport.jpg" alt="Brand Logo">
+                                                <h5>EstheticReport</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -45,16 +50,20 @@
                                     <div class="carousel-item">
                                     <div class="row">
                                         <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/software/ginecoreport.jpg" alt="Brand Logo"></a>
+                                                <img class="img-fluid brand-img" src="assets/img/software/ginecoreport.jpg" alt="Brand Logo">
+                                                <h5>GinecoReport</h5>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/software/LOGO NeuroReport_0.png" alt="Brand Logo"></a>
+                                                <img class="img-fluid brand-img" src="assets/img/software/LOGO NeuroReport_0.png" alt="Brand Logo">
+                                                <h5>NeuroReport</h5>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/software/LOGO NutriReport_0.png" alt="Brand Logo"></a>
+                                                <img class="img-fluid brand-img" src="assets/img/software/LOGO NutriReport_0.png" alt="Brand Logo">
+                                                <h5>NutriReport</h5>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/software/LOGO OdontoReport_0.png" alt="Brand Logo"></a>
+                                                <img class="img-fluid brand-img" src="assets/img/software/LOGO OdontoReport_0.png" alt="Brand Logo">
+                                                <h5>OdontoReport</h5>
                                             </div>
                                         </div>
                                         </div>
@@ -65,16 +74,20 @@
                                     <div class="carousel-item">
                                         <div class="row">
                                         <div class="col-3 p-md-5">
-                                            <a href="#"><img class="img-fluid brand-img" src="assets/img/software/medicalreport.jpg" alt="Brand Logo"></a>
+                                            <img class="img-fluid brand-img" src="assets/img/software/medicalreport.jpg" alt="Brand Logo">
+                                            <h5>MedicalReport</h5>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/software/neumoreport.jpg" alt="Brand Logo"></a>
+                                                <img class="img-fluid brand-img" src="assets/img/software/neumoreport.jpg" alt="Brand Logo">
+                                                <h5>NeumoReport</h5>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/software/oftalreport.jpg" alt="Brand Logo"></a>
+                                                <img class="img-fluid brand-img" src="assets/img/software/oftalreport.jpg" alt="Brand Logo">
+                                                <h5>OftalReport</h5>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/software/oncoreport.jpg" alt="Brand Logo"></a>
+                                                <img class="img-fluid brand-img" src="assets/img/software/oncoreport.jpg" alt="Brand Logo">
+                                                <h5>OncoReport</h5>
                                             </div>
                                         </div>
                                         </div>
@@ -85,6 +98,7 @@
                                 <!--End Slides-->
                             </div>
                         </div>
+</a>
                         <!--End Carousel Wrapper-->
 
                         <!--Controls-->

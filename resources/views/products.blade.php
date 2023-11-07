@@ -14,9 +14,10 @@
         <?php
             use App\Models\Product;
             $products = Product::all();
+
         ?>        
         <div class="row">
-                        <h1 class="h1">Productos</h1>
+            <h1 class="h1">Productos</h1>
 
             <div class="col-lg-4">
             </div>
@@ -31,18 +32,19 @@
                                         <div class="row">                                        
                                             <img class="col-md-6 card-img rounded-0 img-fluid" src="assets/img/software/{{strtolower($pro->image_path)}}.jpg">                                        
                                             <button class="col-md-6 btn btn-primary btn-sm" style="width: 45px; height: 45px;" class="tooltip-test" title="add to cart">
-                                                <i class="fa fa-shopping-cart"> Comprar <br>( {{$pro->price}}$ )</i>
+                                                <i class="fa fa-shopping-cart"> Comprar <br>( {{$pro->price}} Bs. )</i>
                                             </button>
                                         </div>
                                         
                                         <div class="row">
                                                 <span class="text-success h6"><strong>{{ $pro->name }}</strong></span>
                                                 <hr style="width: 90%;" />
-                                                <span class="pt-0"><strong>{{ $pro->slug }}</strong></span>
+                                                <span class="pt-0"><strong>{{ $pro->slug }}</strong></span> 
+                                                <br> <a href="/sistemas" class="btn btn-warning"> Ver Detalles </a>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div style="height: 220px; overflow:hidden;" class="overflow-auto text-justify">{{ $pro->description }}</div>
+                                                <div style="height: 250px; overflow:hidden;" class="overflow-auto text-justify">{{ $pro->description }}</div>
                                             </div>
                                         </div>
 

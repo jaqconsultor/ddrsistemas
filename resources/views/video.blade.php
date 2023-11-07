@@ -7,7 +7,7 @@
         @component('layouts.components.navbar')
         @endcomponent 
         <div class="container">
-<h1>Ginecología</h1>
+<h1 class="h1">Ginecología</h1>
                 <br><br>
                 <strong>Evaluación Física</strong><br>
                 </hr>

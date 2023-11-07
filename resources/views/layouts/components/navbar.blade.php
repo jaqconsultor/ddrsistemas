@@ -59,10 +59,8 @@
                         <a class="nav-link" href="/">Inicio</a>
                     </li> -->
 
-                    
-
                     <li class="nav-item">
-                        <a class="nav-link" href="/about">Acerca De</a>
+                        <a class="nav-link" href="/about">Nosotros</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="/services">Servicios</a>
@@ -73,8 +71,12 @@
 <!--                    <li class="nav-item">
                         <a class="nav-link" href="/contacts">Contacto</a>
                     </li> -->
-                     <li class="nav-item">
+    <!--                 <li class="nav-item">
                         <a class="nav-link" href="/video">Imágenes</a>
+                    </li> -->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/recursos">Recursos</a>
                     </li> 
 
                 </ul>
@@ -90,9 +92,9 @@
                 </div> 
                 <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
                     <i class="fa fa-fw fa-search text-dark mr-2"></i>
-                </a>-->
+                </a> NO-->
 
-                <a id="navbarDropdown" class="nav-icon position-relative text-decoration-none nav-link dropdown-toggle"
+<!--                      <a id="navbarDropdown" class="nav-icon position-relative text-decoration-none nav-link dropdown-toggle"
                        href="#" role="button" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false"
                     >
@@ -101,13 +103,14 @@
                     </span>
                 </a>
 
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="width: 450px; padding: 0px; border-color: #9DA0A2">
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="width: 450px; padding: 0px; border-color: #9DA0A2">
                     <ul class="list-group" style="margin: 20px;">
                         @include('layouts.partials.cart-drop')
                     </ul>
 
                 </div>
-                
+-->
+<!--                
                 @if (Route::has('login'))
                     @auth                            
                         <a class="nav-icon text-decoration-none" href="{{ url('/admin/dashboard') }}">
@@ -125,7 +128,7 @@
                         @endif
                     @endauth
                 @endif                
-
+-->
             </div>
         </div>
 

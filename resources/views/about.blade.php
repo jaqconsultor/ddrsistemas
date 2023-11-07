@@ -13,12 +13,12 @@
                     <div class="col-md-8 text-white">
 
                         <img src="2.thumbnail.png" alt="...">
-                        <h1>Nuestra Empresa DDRSistemas C.A.</h1>
+                        <h1>Nosotros</h1>
                         <p>
                             La Empresa DDR Sistemas, C.A innova en el sector informático local con herramientas que asisten en el desempeño profesional de una gran gama de usuarios, destacándose como una empresa líder en la creación de software, que ofrece productos altamente competitivos adaptados a las diferentes necesidades o requerimientos de su comunidad de clientes.
                             Gracias al esfuerzo de un equipo profesional dedicado y comprometido, DDR Sistemas, C.A. ha consolidado un portafolio de aplicaciones tecnológicas enfocadas a cubrir las necesidades del mercado venezolano, desarrollando paralelamente un excelente sistema de soporte, pre y post ventas.
                         </p>
-
+                        <br><br>
                         <img src="1.thumbnail.png" alt="...">
                         <h1>TRAYECTORIA</h1>
                         
@@ -26,7 +26,7 @@
                             Tenemos una amplia trayectoria ofreciendo soluciones informáticas integrales tanto en el área del comercio como a personas naturales.
                             Contamos con soluciones que pueden satisfacer una amplia diversidad de requerimientos, desarrolladas completamente en Venezuela por un grupo de programadores altamente calificado, comprometido a brindarle el apoyo que usted necesite, cuando lo necesite.
                         </p>
-                        
+                        <br><br>
                         <img src="boton.thumbnail.png" alt="...">
                         <h1>SOFTWARE DDR</h1>
                         <p>
