@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    @component('layouts.components.header')
-    @endcomponent 
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
+    <?php $__env->startComponent('layouts.components.header'); ?>
+    <?php echo $__env->renderComponent(); ?> 
     <body class="antialiased">
         
-        @component('layouts.components.navbar')
-        @endcomponent 
+        <?php $__env->startComponent('layouts.components.navbar'); ?>
+        <?php echo $__env->renderComponent(); ?> 
 
         <!-- Start Banner Hero -->
         <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
@@ -27,16 +27,16 @@
                 </div>
 
 
-                @for ($i = 2; $i < 4; $i++)
+                <?php for($i = 2; $i < 4; $i++): ?>
                     <div class="carousel-item">
                         <div class="container">
                             <div class="row p-5">
                                 <div class="mx-auto col-md-12 col-lg-12 order-lg-last">
-                                    <img class="img-fluid" src="{{$i}}.jpg?v={{$i - 1}}" alt="">
+                                    <img class="img-fluid" src="<?php echo e($i); ?>.jpg?v=<?php echo e($i - 1); ?>" alt="">
                                 </div>
                                 <!-- <div class="col-lg-6 mb-0 d-flex align-items-center">
                                     <div class="text-align-left">
-                                        <h1 class="h1">Repr in voluptate {{ $i }}</h1>
+                                        <h1 class="h1">Repr in voluptate <?php echo e($i); ?></h1>
                                         <h3 class="h2">Ullamco laboris nisi ut </h3>
                                         <p>
                                             We bring you 100% free CSS templates for your websites. 
@@ -48,7 +48,7 @@
                             </div>
                         </div>
                     </div>
-                @endfor
+                <?php endfor; ?>
 
             </div>
             <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
@@ -182,11 +182,12 @@
         </section>
         <!-- End Featured Product -->
 
-        @component('nuestrosproductos')
-        @endcomponent 
+        <?php $__env->startComponent('nuestrosproductos'); ?>
+        <?php echo $__env->renderComponent(); ?> 
 
-        @component('layouts.components.footer')
-        @endcomponent
+        <?php $__env->startComponent('layouts.components.footer'); ?>
+        <?php echo $__env->renderComponent(); ?>
         
     </body>
 </html>
+<?php /**PATH C:\DDRSistemasWeb\repo\ddrsistemas\resources\views/welcome.blade.php ENDPATH**/ ?>
