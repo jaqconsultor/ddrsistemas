@@ -109,7 +109,7 @@
                         </div>
                     </li> -->
                     <li class="nav-item">
-                            <img src="{{ auth()->user()->avatar_url }}" id="profileImage" class="img-circle elevation-1" alt="User Image" style="height: 30px; width: 30px;">
+                            {{ auth()->user()->name }}<br>
                             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">Cerrar</a>
                     </li>
