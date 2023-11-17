@@ -66,6 +66,9 @@
           <div class="col-8">
               <span class="fas fa-register"><a href="/register">Aun no tienes una cuenta?</a></span>
           </div>
+          <a href="/" class="col-md-6 btn  btn-outline-secondary btn-sm" style="width: 100px; height: 45px;" class="tooltip-test" title="Volver">
+    					<i class="fa fa-refresh"> Volver</i>
+    					</a>
         </div>
       </form>
     </div>

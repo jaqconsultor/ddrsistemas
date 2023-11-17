@@ -108,6 +108,10 @@
                   <span class="fas fa-register"><a href="/login">Acceder</a></span>
               </div>
             </div>
+            <a href="/" class="col-md-6 btn  btn-outline-secondary btn-sm" style="width: 100px; height: 45px;" class="tooltip-test" title="Volver">
+    					<i class="fa fa-refresh"> Volver</i>
+    					</a>
+
 
         </form>
 
