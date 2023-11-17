@@ -1,11 +1,12 @@
 <?php
 
 
+
+use App\Http\Controllers\PagadoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Livewire\Product\ListProductos;
 use App\Http\Livewire\Category\ListCategories;
-use App\Http\Livewire\Brand\ListBrands;
 use App\Http\Livewire\Pasarela\ViewPasarela;
 use App\Http\Livewire\Redireccion;
 use App\Models\Product;
@@ -75,7 +76,6 @@ Route::get('/detail/{product_id}', function ($product_id) {
 })->name('detail');
 
 
-
 //Route::get('/', [CartController::class, 'shop'])->name('shop')->middleware('auth');
 Route::get('/shop', [CartController::class, 'shop'])->name('shop');
 Route::get('/cart', [CartController::class, 'cart'])->name('cart.index');
@@ -87,6 +87,7 @@ Route::post('/clear', [CartController::class, 'clear'])->name('cart.clear');
 Route::get('listproductos', ListProductos::class)->name('listproductos');
 
 Route::get('/redireccion', Redireccion::class)->name('redireccion')->middleware('auth');
+
 
 
 Route::get('/listcategories', ListCategories::class)->name('listcategories')->middleware('auth');

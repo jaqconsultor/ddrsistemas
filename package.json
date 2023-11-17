@@ -9,7 +9,8 @@
         "prod": "npm run production",
         "production": "mix --production",
         "limpieza": "php artisan cache:clear &&  php artisan route:clear &&  php artisan config:clear &&  php artisan view:clear ",
-        "server": "php artisan cache:clear &&  php artisan route:clear &&  php artisan config:clear &&  php artisan view:clear && php artisan serve"
+        "server": "php artisan cache:clear &&  php artisan route:clear &&  php artisan config:clear &&  php artisan view:clear && php artisan serve",
+        "rutas": "php artisan route:list > rutas.txt && notepad rutas.txt"
     },
     "devDependencies": {
         "laravel-mix": "^6.0.6"

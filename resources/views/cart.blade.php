@@ -10,12 +10,7 @@
         <!-- Start Shop -->
         
         <div class="container" style="margin-top: 80px">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/products">Tienda</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Carrito</li>
-                </ol>
-            </nav>
+            Carrito de Compra
             @if(session()->has('success_msg'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ session()->get('success_msg') }}
@@ -48,8 +43,8 @@
                     @if(\Cart::getTotalQuantity()>0)
                         <h4>{{ \Cart::getTotalQuantity()}} Producto(s) en el carrito</h4><br>
                     @else
-                        <h4>No Product(s) In Your Cart</h4><br>
-                        <a href="/products" class="btn btn-dark">Continue en la tienda</a>
+                        <h4>No Existen Productos en el Carrito de Compra</h4><br>
+                        <a href="/products" class="btn btn-dark">Seleccionar mas Productos</a>
                     @endif
 
                     @foreach($cartCollection as $item)
@@ -60,8 +55,8 @@
                             <div class="col-lg-5">
                                 <p>
                                     <b><a href="/shop/{{ $item->attributes->slug }}">{{ $item->name }}</a></b><br>
-                                    <b>Precio: </b>Bs{{ $item->price }}<br>
-                                    <b>Sub Total: </b>Bs{{ \Cart::get($item->id)->getPriceSum() }}<br>
+                                    <b>Precio: </b>{{ $item->price }} USD / {{ $item->price * 35.5 }} BS <br>
+                                    <b>Sub Total: </b>{{ \Cart::get($item->id)->getPriceSum() }} USD / {{ \Cart::get($item->id)->getPriceSum() * 35.5 }} BS <br>
                                     {{--                                <b>With Discount: </b>${{ \Cart::get($item->id)->getPriceSumWithConditions() }}--}}
                                 </p>
                             </div>
@@ -76,13 +71,13 @@
                                                     <input type="number" class="form-control" value="{{ $item->quantity }}"
                                                     id="quantity" name="quantity">
                                                 </div>
-                                                <div class="col-6">
+                                                <!-- <div class="col-4">
                                                     <button class="btn btn-secondary"><i class="fa fa-edit"></i></button>
-                                                </div>    
+                                                </div> -->
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-2">
                                         <form action="{{ route('cart.remove') }}" method="POST">
                                             {{ csrf_field() }}
                                             <input type="hidden" value="{{ $item->id }}" id="id" name="id">
@@ -97,7 +92,7 @@
                     @if(count($cartCollection)>0)
                         <form action="{{ route('cart.clear') }}" method="POST">
                             {{ csrf_field() }}
-                            <button class="btn btn-secondary btn-md">Borrar Carrito</button> 
+                            <button class="btn btn-secondary btn-md">Vaciar Carrito</button> 
                         </form>
                     @endif
                 </div>
@@ -105,11 +100,16 @@
                     <div class="col-lg-5">
                         <div class="card">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><b>Total: </b>Bs{{ \Cart::getTotal() }}</li>
+                                <li class="list-group-item"><b>Total: </b>{{ \Cart::getTotal() }} USD / {{ \Cart::getTotal() * 35.5 }} BS </li>
                             </ul>
                         </div>
                         <!-- <br><a href="/products" class="btn btn-dark">Continue en la tienda</a> -->
-                        <a href="https://ddrsistemas.com/pasarela/Index.php" class="btn btn-success">Proceder a Pagar</a>
+
+                        <a href="https://ddrsistemas.com/pasarela/Index.php" class="btn btn-primary">Proceder a Pagar Completo</a>
+                        <!-- <a href="https://ddrsistemas.com/pasarela/Index.php" class="btn btn-success">Proceder a Pagar</a> -->
+
+                        <a href="https://ddrsistemas.com/pasarela/Index.php" class="btn btn-info">Proceder a Pagar a Crédito</a>
+
                     </div>
                 @endif
             </div>
