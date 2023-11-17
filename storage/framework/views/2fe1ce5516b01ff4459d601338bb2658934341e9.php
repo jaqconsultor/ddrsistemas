@@ -33,10 +33,20 @@
                                         <?php echo e(csrf_field()); ?>
 
                                         <div class="row">                                       
-                                            <img class="col-md-6 card-img rounded-0 img-fluid" src="assets/img/software/<?php echo e(strtolower($pro->image_path)); ?>.jpg">                                        
-                                            <button class="col-md-6 btn btn-primary btn-sm" style="width: 45px; height: 45px;" class="tooltip-test" title="add to cart">
+                                            <div class="col-4">
+                                                <img  src="assets/img/software/<?php echo e(strtolower($pro->image_path)); ?>.jpg">                                        
+                                            </div>
+                                            <div class="col-8">
+                                                <button class="btn btn-primary btn-sm" style="width: 150px; height: 50px;" class="tooltip-test" title="add to cart">
+                                                    <i class="fa fa-shopping-cart"> Comprar <br>( <?php echo e($pro->price); ?> USD )</i>
+                                                </button>
+                                            </div>
+                                            <!-- <img class="col-md-6 card-img rounded-0 img-fluid" src="assets/img/software/<?php echo e(strtolower($pro->image_path)); ?>.jpg">  -->
+                                            
+                                            <!-- <button class="col-md-6 btn btn-primary btn-sm" style="width: 45px; height: 45px;" class="tooltip-test" title="add to cart">
                                                 <i class="fa fa-shopping-cart"> Comprar <br>( <?php echo e($pro->price); ?> USD )</i>
                                             </button>
+                                            -->
                                         </div>
                                         
                                         <div class="row">

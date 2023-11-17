@@ -55,14 +55,7 @@
             <div class="flex-fill">
                 <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                     @if (auth()->check())
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/admin/dashboard">Tablero</a>
-                        </li>
                     @endif
-
                     <li class="nav-item">
                         <a class="nav-link" href="/about">Nosotros</a>
                     </li>
@@ -99,7 +92,7 @@
                             </div>
                     </li>
                     @auth
-                    <li class="nav-item dropdown">
+<!--                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             
                             <img src="{{ auth()->user()->avatar_url }}" id="profileImage" class="img-circle elevation-1" alt="User Image" style="height: 30px; width: 30px;">
@@ -114,7 +107,20 @@
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
                             </form>
                         </div>
+                    </li> -->
+                    <li class="nav-item">
+                            <img src="{{ auth()->user()->avatar_url }}" id="profileImage" class="img-circle elevation-1" alt="User Image" style="height: 30px; width: 30px;">
+                            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">Cerrar</a>
                     </li>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                  </form>
+            </div>
+
+
+
+
                     @else
                         <li class="nav-item">
                             <a class="nav-link" href="/login">Acceso</a>

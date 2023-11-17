@@ -108,8 +108,8 @@
                                 <li class="list-group-item"><b>Total: </b>Bs{{ \Cart::getTotal() }}</li>
                             </ul>
                         </div>
-                        <br><a href="/products" class="btn btn-dark">Continue en la tienda</a>
-                        <a href="/redireccion" class="btn btn-success">Proceder a Pagar</a>
+                        <!-- <br><a href="/products" class="btn btn-dark">Continue en la tienda</a> -->
+                        <a href="https://ddrsistemas.com/pasarela/Index.php" class="btn btn-success">Proceder a Pagar</a>
                     </div>
                 @endif
             </div>

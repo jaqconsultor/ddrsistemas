@@ -52,6 +52,18 @@
             </div>
 
             <div class="input-group mb-3">
+                <input type="text" name="celular" max="11"  class="form-control" placeholder="Eje: 04009999999">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-number">Celular</span>
+                    </div>
+                </div>
+                @error('celular')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div class="input-group mb-3">
                 <input type="email" name="email" class="form-control" placeholder="Correo Electrónico">
                 <div class="input-group-append">
                     <div class="input-group-text">
@@ -93,7 +105,7 @@
 
             <div class="input-group mb-3">
               <div class="col-8">
-                  <span class="fas fa-register"><a href="/register">No tienes una cuenta?</a></span>
+                  <span class="fas fa-register"><a href="/login">Acceder</a></span>
               </div>
             </div>
 
