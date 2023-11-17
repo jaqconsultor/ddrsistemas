@@ -1,11 +1,10 @@
 <head>
-
 <meta http-equiv="Expires" content="0">
 <meta http-equiv="Last-Modified" content="0">
 <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta charset="utf-8">
+<meta http-equiv="Pragma" content="no-cache">    
 
+<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
@@ -48,15 +47,15 @@ path {
 
     <title>Listos para crecer contigo</title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/faviconddr.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/faviconddr.ico">
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/templatemo.css">
-    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/templatemo.css">
+    <link rel="stylesheet" href="/assets/css/custom.css">
 
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
-    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
 
 
 <!-- Smartsupp Live Chat script -->

@@ -8,56 +8,29 @@
         @endcomponent 
 
         <!-- Start Banner Hero -->
-        <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
-                <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
-                <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-
-                <div class="carousel-item active">
-                    <div class="container">
-                        <div class="row p-5">
-                                <div class="mx-auto col-md-12 col-lg-12 order-lg-last">
-                                    <img class="img-fluid" src="1.jpg?v=2" alt="">
-                                </div>
-                        </div>
-                    </div>
+        
+            <div id="carouselExampleInterval" class="carousel slide my-1" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                  <img src="1.jpg" class="d-block w-100" alt="...">
                 </div>
-
-
-                @for ($i = 2; $i < 4; $i++)
-                    <div class="carousel-item">
-                        <div class="container">
-                            <div class="row p-5">
-                                <div class="mx-auto col-md-12 col-lg-12 order-lg-last">
-                                    <img class="img-fluid" src="{{$i}}.jpg?v={{$i - 1}}" alt="">
-                                </div>
-                                <!-- <div class="col-lg-6 mb-0 d-flex align-items-center">
-                                    <div class="text-align-left">
-                                        <h1 class="h1">Repr in voluptate {{ $i }}</h1>
-                                        <h3 class="h2">Ullamco laboris nisi ut </h3>
-                                        <p>
-                                            We bring you 100% free CSS templates for your websites. 
-                                            If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.
-                                        </p>
-                                    </div>
-                                </div>
--->
-                            </div>
-                        </div>
-                    </div>
-                @endfor
-
-            </div>
-            <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
-                <i class="fas fa-chevron-left"></i>
-            </a>
-            <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
-                <i class="fas fa-chevron-right"></i>
-            </a>
-        </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                  <img src="2.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="3.jpg" class="d-block w-100" alt="...">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>   
+        
         <!-- End Banner Hero -->
 
 
@@ -108,7 +81,7 @@
                 <div class="row">
                     <div class="col-12 col-md-4 mb-4">
                         <div class="card h-100">
-                            <a href="/products">
+                            <a href="/detail/{{1}}">
                                 <img src="ginecoreport_logo.jpg" height="200px" class="card-img-top" alt="...">
                             </a>
                             <div class="card-body">
@@ -121,7 +94,7 @@
                                         <i class="text-warning fa fa-star"></i>                                    </li>
                                     <!-- <li class="text-muted text-right">$240.00</li> -->
                                 </ul>
-                                <a href="/products" class="h2 text-decoration-none text-dark">Ginecología</a>
+                                <a href="/detail/{{1}}" class="h2 text-decoration-none text-dark">Ginecología</a>
 <!--                                <p class="card-text">
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia deserunt.
                                 </p>
@@ -132,7 +105,7 @@
                     </div>
                     <div class="col-12 col-md-4 mb-4">
                         <div class="card h-100">
-                            <a href="/products">
+                            <a href="/detail/{{12}}">
                                 <img src="pediareport_logo.jpg" class="card-img-top" height="200px" alt="...">
                             </a>
                             <div class="card-body">
@@ -145,7 +118,7 @@
                                         <i class="text-warning fa fa-star"></i>                                    </li>
                                     <!-- <li class="text-muted text-right">$480.00</li> -->
                                 </ul>
-                                <a href="shop-single.html" class="h2 text-decoration-none text-dark">Pediatría</a>
+                                <a href="/detail/{{12}}" class="h2 text-decoration-none text-dark">Pediatría</a>
 <!--                                 <p class="card-text">
                                     Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.
                                 </p>
@@ -155,7 +128,7 @@
                     </div>
                     <div class="col-12 col-md-4 mb-4">
                         <div class="card h-100">
-                            <a href="#">
+                            <a href="/detail/{{27}}">
                                 <img src="orthoreport_logo.jpg" class="card-img-top" height="200px" alt="...">
                             </a>
                             <div class="card-body">
@@ -169,7 +142,7 @@
                                     </li>
                                     <!-- <li class="text-muted text-right">$360.00</li> -->
                                 </ul>
-                                <a href="#" class="h2 text-decoration-none text-dark">Traumatología</a>
+                                <a href="/detail/{{27}}" class="h2 text-decoration-none text-dark">Traumatología</a>
 <!--                                <p class="card-text">
                                     Curabitur ac mi sit amet diam luctus porta. Phasellus pulvinar sagittis diam, et scelerisque ipsum lobortis nec.
                                 </p>
@@ -182,6 +155,7 @@
         </section>
         <!-- End Featured Product -->
 
+        
         @component('nuestrosproductos')
         @endcomponent 
 

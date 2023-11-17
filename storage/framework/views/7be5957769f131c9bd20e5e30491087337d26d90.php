@@ -41,10 +41,9 @@
 <nav class="navbar navbar-expand-lg navbar-light shadow ">
     <div class="container d-flex justify-content-between align-items-center">
 
-
         <a class="w-20 navbar-brand text-success logo h1 align-self-center" href="/">
             <div class="logoDiv">
-                <img class="logoImg" src="./assets/img/logo_ddrsistemas.png" alt="">
+                <img class="logoImg" src="/assets/img/logo_ddrsistemas.png" alt="">
             </div>
         </a>
 
@@ -55,9 +54,14 @@
         <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
             <div class="flex-fill">
                 <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="/">Inicio</a>
-                    </li> -->
+                    <?php if(auth()->check()): ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/dashboard">Tablero</a>
+                        </li>
+                    <?php endif; ?>
 
                     <li class="nav-item">
                         <a class="nav-link" href="/about">Nosotros</a>
@@ -68,69 +72,65 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/products">Productos</a>
                     </li>
-<!--                    <li class="nav-item">
-                        <a class="nav-link" href="/contacts">Contacto</a>
-                    </li> -->
-    <!--                 <li class="nav-item">
-                        <a class="nav-link" href="/video">Imágenes</a>
-                    </li> -->
 
                     <li class="nav-item">
                         <a class="nav-link" href="/recursos">Recursos</a>
                     </li> 
-
                 </ul>
+                <!-- Right navbar links -->
             </div>
-            <div class="navbar align-self-center d-flex accesoDiv">
-                <!-- <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
-                        <div class="input-group-text">
-                            <i class="fa fa-fw fa-search"></i>
+            <div class="navbar d-flex accesoDiv">
+                <ul class="navbar-nav ml-auto">
+                    <li>
+                        <a id="navbarDropdown" class="nav-icon position-relative text-decoration-none nav-link dropdown-toggle"
+                                   href="#" role="button" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false"
+                                >
+                                <span class="badge badge-pill text-black">
+                                    <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i><span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"><?php echo e(\Cart::getTotalQuantity()); ?></span>
+                                </span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown" style="width: 450px; padding: 0px; border-color: #9DA0A2">
+                                <ul class="list-group" style="margin: 20px;">
+                                    <?php echo $__env->make('layouts.partials.cart-drop', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                                </ul>
+
+                            </div>
+                    </li>
+                    <?php if(auth()->guard()->check()): ?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            
+                            <img src="<?php echo e(auth()->user()->avatar_url); ?>" id="profileImage" class="img-circle elevation-1" alt="User Image" style="height: 30px; width: 30px;">
+                            <span class="ml-1" x-ref="username"><?php echo e(auth()->user()->name); ?></span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="<?php echo e(route('admin.profile.edit')); ?>" x-ref="profileLink">Profile</a>
+                            <a class="dropdown-item" href="<?php echo e(route('admin.profile.edit')); ?>" x-ref="changePasswordLink">Change Password</a>
+                            <a class="dropdown-item" href="<?php echo e(route('admin.settings')); ?>">Settings</a>
+                            <div class="dropdown-divider"></div>
+                            <form method="POST" action="<?php echo e(route('logout')); ?>">
+                                <a class="dropdown-item" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
+                            </form>
                         </div>
-                    </div>
-                </div> 
-                <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
-                    <i class="fa fa-fw fa-search text-dark mr-2"></i>
-                </a> NO-->
-
-                      <a id="navbarDropdown" class="nav-icon position-relative text-decoration-none nav-link dropdown-toggle"
-                       href="#" role="button" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false"
-                    >
-                    <span class="badge badge-pill text-black">
-                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i><span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"><?php echo e(\Cart::getTotalQuantity()); ?></span>
-                    </span>
-                </a>
-
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="width: 450px; padding: 0px; border-color: #9DA0A2">
-                    <ul class="list-group" style="margin: 20px;">
-                        <?php echo $__env->make('layouts.partials.cart-drop', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                    </ul>
-
-                </div>
-
-
-                <?php if(Route::has('login')): ?>
-                    <?php if(auth()->guard()->check()): ?>                            
-                        <a class="nav-icon text-decoration-none" href="<?php echo e(url('/admin/dashboard')); ?>">
-                            <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                            <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
-                        </a>
+                    </li>
                     <?php else: ?>
-                        <a class="nav-icon position-relative text-decoration-none" href="<?php echo e(route('login')); ?>">
-                            <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark btn btn-primary">Acceso</span>
-                        </a>
-                        <?php if(Route::has('register')): ?>
-                        <a class="nav-icon position-relative text-decoration-none mx-5" href="<?php echo e(route('register')); ?>">
-                            <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark btn btn-info">Registro</span>
-                        </a>
-                        <?php endif; ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Acceso</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register">Registro</a>
+                        </li> 
                     <?php endif; ?>
-                <?php endif; ?>                
-<!-- -->
+                </ul>
+
+
             </div>
         </div>
+
+
 
     </div>
 </nav>

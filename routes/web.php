@@ -3,11 +3,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
-use App\Http\Livewire\Product\ListProducts;
+use App\Http\Livewire\Product\ListProductos;
 use App\Http\Livewire\Category\ListCategories;
 use App\Http\Livewire\Brand\ListBrands;
 use App\Http\Livewire\Pasarela\ViewPasarela;
 use App\Http\Livewire\Redireccion;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,11 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('about');
 })->name('about');
+
+Route::get('detalles/{product_id}',  function ($product_id) {
+    $product = Product::query()->where('id', $product_id)->first();
+    return view('detalles', ['product'=>$product]);
+})->name('detalles');
 
 Route::get('/services', function () {
     return view('services');
@@ -52,6 +58,9 @@ Route::get('/recursos', function () {
     return view('recursos');
 })->name('recursos');
 
+
+
+
 Route::get('/faq', function () {
     return view('faq');
 })->name('faq');
@@ -59,6 +68,12 @@ Route::get('/faq', function () {
 Route::get('/sistemas', function () {
     return view('sistemas');
 })->name('sistemas');
+
+Route::get('/detail/{product_id}', function ($product_id) {
+    $product = Product::query()->where('id', $product_id)->first();
+    return view('detail', ['product'=>$product]);
+})->name('detail');
+
 
 
 //Route::get('/', [CartController::class, 'shop'])->name('shop')->middleware('auth');
@@ -69,7 +84,7 @@ Route::post('/update', [CartController::class, 'update'])->name('cart.update');
 Route::post('/remove', [CartController::class, 'remove'])->name('cart.remove');
 Route::post('/clear', [CartController::class, 'clear'])->name('cart.clear');
 
-Route::get('/listproducts', ListProducts::class)->name('listproducts');
+Route::get('listproductos', ListProductos::class)->name('listproductos');
 
 Route::get('/redireccion', Redireccion::class)->name('redireccion')->middleware('auth');
 

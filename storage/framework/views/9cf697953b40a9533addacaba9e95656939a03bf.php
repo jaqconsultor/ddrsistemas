@@ -16,9 +16,9 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/240px-WhatsApp.svg.png" width="50" height="50"></a>
 </div>
 
-    <div class="row">
+    <div class="row ">
 
-            <div class="col-md-3 pt-5">
+            <div class="col-md-4 pt-5">
                 <h2 class="h2 text-light border-bottom pb-3 border-light logo">DDRSistemas</h2>
                 <ul class="list-unstyled text-light footer-link-list">
                     <li>
@@ -52,7 +52,7 @@
 -->
                 </ul>
             </div>
-
+             <!--
             <div class="col-md-3 pt-5">
                 <h2 class="h2 text-light border-bottom pb-3 border-light">Departamentos</h2>
                 <ul class="list-unstyled text-light footer-link-list">
@@ -70,18 +70,19 @@
                     </li>
                 </ul> 
             </div>
-
-            <div class="col-md-3 pt-5">
+            -->
+            
+            <div class="col-md-4 pt-5">
                 <h2 class="h2 text-light border-bottom pb-3 border-light">Productos</h2>
                 <ul class="list-unstyled text-light footer-link-list">
-                    <li><a class="text-decoration-none" href="/products">GinecoReport</a></li>
-                    <li><a class="text-decoration-none" href="/products">PediReport</a></li>
-                    <li><a class="text-decoration-none" href="/products">OrthoReport</a></li>
-                    <li><a class="text-decoration-none" href="/products">NeumoReport</a></li>
+                    <li><a class="text-decoration-none" href="/detail/<?php echo e(1); ?>">GinecoReport</a></li>
+                    <li><a class="text-decoration-none" href="/detail/<?php echo e(12); ?>">PediReport</a></li>
+                    <li><a class="text-decoration-none" href="/detail/<?php echo e(27); ?>">OrthoReport</a></li>
+                    <li><a class="text-decoration-none" href="/detail/<?php echo e(21); ?>">NeumoReport</a></li>
                 </ul> 
             </div>
 
-            <div class="col-md-3 pt-5">
+            <div class="col-md-4 pt-5">
                 <h2 class="h2 text-light border-bottom pb-3 border-light">Enlaces</h2>
                 <ul class="list-unstyled text-light footer-link-list">
                     <li><a class="text-decoration-none" href="/">Inicio</a></li>
@@ -135,7 +136,7 @@
             <div class="row pt-2">
                 <div class="col-4">
                     <p class="text-left text-light">
-                        Copyright &copy; 2023 DDR Sistemas C.A. 
+                        Copyright © 2023 DDR Sistemas C.A. 
                     </p>
                 </div>
                 <div class="col-3">
@@ -144,10 +145,10 @@
                     <p class="text-left text-light">
                         <!-- Desing by <a href="https://jaqconsultor.tech" target="_blank">JAQConsultor.tech</a> & TytpeRosales -->
                         <span>Pago Seguro 
-                        <img src="botondepago.jpg" height="25"> 
-                        <img src="modalidad.jpg" height="25">
-                        <img src="zelle.png" height="25">
-                        <img src="paypal.png" height="25">
+                        <img src="/botondepago.jpg" height="25"> 
+                        <img src="/modalidad.jpg" height="25">
+                        <img src="/zelle.png" height="25">
+                        <img src="/paypal.png" height="25">
                     </span>
                     </p>
                 </div>
@@ -159,9 +160,9 @@
 <!-- End Footer -->
 
 <!-- Start Script -->
-<script src="assets/js/jquery-1.11.0.min.js"></script>
-<script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/templatemo.js"></script>
-<script src="assets/js/custom.js"></script>
+<script src="/assets/js/jquery-1.11.0.min.js"></script>
+<script src="/assets/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/templatemo.js"></script>
+<script src="/assets/js/custom.js"></script>
 <!-- End Script --><?php /**PATH C:\DDRSistemasWeb\repo\ddrsistemas\resources\views/layouts/components/footer.blade.php ENDPATH**/ ?>

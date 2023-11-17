@@ -3,12 +3,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Users</h1>
+                    <h1 class="m-0 text-dark">Usuarios</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Users</li>
+                        <li class="breadcrumb-item"><a href="/admin/dashboard">Tablero</a></li>
+                        <li class="breadcrumb-item active">Listado</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="d-flex justify-content-between mb-2">
-                        <button wire:click.prevent="addNew" class="btn btn-primary"><i class="fa fa-plus-circle mr-1"></i> Add New User</button>
+                        <button wire:click.prevent="addNew" class="btn btn-primary"><i class="fa fa-plus-circle mr-1"></i> Nuevo Usuario</button>
                         <x-search-input wire:model="searchTerm" />
                     </div>
                     <div class="card">
@@ -32,7 +32,7 @@
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">
-                                            Name
+                                            Nombre
                                             <span wire:click="sortBy('name')" class="float-right text-sm" style="cursor: pointer;">
                                                 <i class="fa fa-arrow-up {{ $sortColumnName === 'name' && $sortDirection === 'asc' ? '' : 'text-muted' }}"></i>
                                                 <i class="fa fa-arrow-down {{ $sortColumnName === 'name' && $sortDirection === 'desc' ? '' : 'text-muted' }}"></i>
@@ -45,9 +45,9 @@
                                                 <i class="fa fa-arrow-down {{ $sortColumnName === 'email' && $sortDirection === 'desc' ? '' : 'text-muted' }}"></i>
                                             </span>
                                         </th>
-                                        <th scope="col">Registerd Date</th>
-                                        <th scope="col">Role</th>
-                                        <th scope="col">Options</th>
+                                        <th scope="col">Fecha de Registro</th>
+                                        <th scope="col">Rol</th>
+                                        <th scope="col">Opciones</th>
                                     </tr>
                                 </thead>
                                 <tbody wire:loading.class="text-muted">
@@ -80,7 +80,7 @@
                                     <tr class="text-center">
                                         <td colspan="5">
                                             <img src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/v2/assets/empty.svg" alt="No results found">
-                                            <p class="mt-2">No results found</p>
+                                            <p class="mt-2">No se encontro resultados</p>
                                         </td>
                                     </tr>
                                     @endforelse
@@ -106,9 +106,9 @@
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">
                             @if($showEditModal)
-                            <span>Edit User</span>
+                            <span>Editar Usuario</span>
                             @else
-                            <span>Add New User</span>
+                            <span>Nuevo Usuario</span>
                             @endif
                         </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -117,8 +117,8 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" wire:model.defer="state.name" class="form-control @error('name') is-invalid @enderror" id="name" aria-describedby="nameHelp" placeholder="Enter full name">
+                            <label for="name">Nombre Completo</label>
+                            <input type="text" wire:model.defer="state.name" class="form-control @error('name') is-invalid @enderror" id="name" aria-describedby="nameHelp" placeholder="Nombre Completo">
                             @error('name')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -127,8 +127,18 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Email address</label>
-                            <input type="text" wire:model.defer="state.email" class="form-control @error('email') is-invalid @enderror" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                            <label for="cedula">Cédula</label>
+                            <input type="text" wire:model.defer="state.cedula" class="form-control @error('cedula') is-invalid @enderror" id="cedula" aria-describedby="cedulaHelp" placeholder="Cédula">
+                            @error('cedula')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="text" wire:model.defer="state.email" class="form-control @error('email') is-invalid @enderror" id="email" aria-describedby="emailHelp" placeholder="Correo Electrónico">
                             @error('email')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -137,8 +147,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" wire:model.defer="state.password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Password">
+                            <label for="password">Contraseña</label>
+                            <input type="password" wire:model.defer="state.password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Contraseña">
                             @error('password')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -147,18 +157,18 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="passwordConfirmation">Confirm Password</label>
-                            <input type="password" wire:model.defer="state.password_confirmation" class="form-control" id="passwordConfirmation" placeholder="Confirm Password">
+                            <label for="passwordConfirmation">Confirme la Contraseña</label>
+                            <input type="password" wire:model.defer="state.password_confirmation" class="form-control" id="passwordConfirmation" placeholder="Confirme la Contraseña">
                         </div>
 
                         <div class="form-group">
-                            <label for="customFile">Profile Photo</label>
+                            <label for="customFile">Foto de Perfil</label>
                             <div class="custom-file">
                                 <div x-data="{ isUploading: false, progress: 5 }" x-on:livewire-upload-start="isUploading = true" x-on:livewire-upload-finish="isUploading = false; progress = 5" x-on:livewire-upload-error="isUploading = false" x-on:livewire-upload-progress="progress = $event.detail.progress">
                                     <input wire:model="photo" type="file" class="custom-file-input" id="customFile">
                                     <div x-show.transition="isUploading" class="progress progress-sm mt-2 rounded">
                                         <div class="progress-bar bg-primary progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" x-bind:style="`width: ${progress}%`">
-                                            <span class="sr-only">40% Complete (success)</span>
+                                            <span class="sr-only">40% Completo (success)</span>
                                         </div>
                                     </div>
                                 </div>
@@ -166,7 +176,7 @@
                                     @if ($photo)
                                     {{ $photo->getClientOriginalName() }}
                                     @else
-                                    Choose Image
+                                    Seleccione la Imagen
                                     @endif
                                 </label>
                             </div>
@@ -183,9 +193,9 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times mr-1"></i> Cancel</button>
                         <button type="submit" class="btn btn-primary"><i class="fa fa-save mr-1"></i>
                             @if($showEditModal)
-                            <span>Save Changes</span>
+                            <span>Guardar Cambios</span>
                             @else
-                            <span>Save</span>
+                            <span>Guardar</span>
                             @endif
                         </button>
                     </div>
@@ -199,16 +209,16 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5>Delete User</h5>
+                    <h5>Eliminar Usuario</h5>
                 </div>
 
                 <div class="modal-body">
-                    <h4>Are you sure you want to delete this user?</h4>
+                    <h4>Esta usted seguro de querer eliminar este usuario?</h4>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times mr-1"></i> Cancel</button>
-                    <button type="button" wire:click.prevent="deleteUser" class="btn btn-danger"><i class="fa fa-trash mr-1"></i>Delete User</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times mr-1"></i> Cancelar</button>
+                    <button type="button" wire:click.prevent="deleteUser" class="btn btn-danger"><i class="fa fa-trash mr-1"></i>Eliminar Usuario</button>
                 </div>
             </div>
         </div>

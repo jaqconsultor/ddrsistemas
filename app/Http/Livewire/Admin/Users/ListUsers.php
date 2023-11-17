@@ -58,6 +58,7 @@ class ListUsers extends AdminComponent
 	{
 		$validatedData = Validator::make($this->state, [
 			'name' => 'required',
+			'cedula' => 'required',
 			'email' => 'required|email|unique:users',
 			'password' => 'required|confirmed',
 		])->validate();
@@ -92,6 +93,7 @@ class ListUsers extends AdminComponent
 	{
 		$validatedData = Validator::make($this->state, [
 			'name' => 'required',
+			'cedula' => 'required',
 			'email' => 'required|email|unique:users,email,'.$this->user->id,
 			'password' => 'sometimes|confirmed',
 		])->validate();

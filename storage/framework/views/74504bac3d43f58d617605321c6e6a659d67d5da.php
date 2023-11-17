@@ -3,7 +3,7 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-lg-3">
-                    <img src="/storage/imagesproduct/<?php echo e($item->attributes->image); ?>"
+                    <img src="/assets/img/software/<?php echo e(strtolower($item->attributes->image)); ?>.jpg"
                          style="width: 50px; height: 50px;"
                     >
                 </div>

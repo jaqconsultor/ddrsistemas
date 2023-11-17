@@ -50,8 +50,8 @@
         </li>
 
         <li class="nav-item">
-          <a href="{{ route('listproducts') }}" class="nav-link {{ request()->is('listproducts') ? 'active' : '' }}">
-          <i class="fas fa-brands fa-product-hunt"></i>
+          <a href="{{ route('listproductos') }}" class="nav-link {{ request()->is('listproductos') ? 'active' : '' }}">
+            <i class="fas fa-solid fa-box"></i>
             <p>
               Productos
             </p>

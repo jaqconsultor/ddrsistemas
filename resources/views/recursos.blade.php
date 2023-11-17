@@ -14,16 +14,17 @@
                     $products = Product::all();
                 ?>        
 
-            @foreach($products as $pro)
+           @foreach($products as $pro) 
                                         
             <div class="row">
                     <strong>Recursos de {{ $pro->name }}</strong>
-                    <a href="{{ $pro->name }}.pdf"><span class="text-info h6">Manual de <strong>{{ $pro->name }}</strong></span></a>
-                    <a href="{{ $pro->name }}.msi"><span class="text-info h6">DEMO para Windows</strong></span></a>
+                    <a href="/assets/pdf/{{ $pro->name }}.pdf" target="blank"><span class="text-info h6">Manual de <strong>{{ $pro->name }}</strong></span></a>
+                   <!-- <a href="{{ $pro->name }}.msi"><span class="text-info h6">DEMO para Windows</strong></span></a>-->
                     <br><br><br>
             </div>
 
-             @endforeach
+           @endforeach   
+                      
 
              <br><br>
 

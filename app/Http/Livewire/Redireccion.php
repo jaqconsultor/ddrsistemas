@@ -14,6 +14,19 @@ class Redireccion extends Component
 		$this->state['total'] = \Cart::getTotal();
 		$this->state['email'] = auth()->user()->email;
 		$this->state['title'] = 'Pago de producto(s)';
+
+		$description = '';
+
+		/*$cartCollection = \Cart::cartCollection();
+
+		foreach($cartCollection as $item)
+		{
+			$description .= $item->name.'-'
+		}
+		*/
+
+		$this->state['description'] = $description;
+
 	}
     public function render()
     {

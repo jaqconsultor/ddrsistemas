@@ -20,6 +20,7 @@
             <h1 class="h1">Productos</h1>
 
             <div class="col-lg-4">
+                
             </div>
             <div class="col-lg-12">
                 <div class="row">
@@ -28,11 +29,12 @@
                             <div class="card mb-4 product-wap rounded-0 overflow-y" style="height: 450px;">
                                 <div class="card-body">
                                     <form action="{{ route('cart.store') }}" method="POST">
+                                         <a href="/detail/{{$pro->id}}" class="text-decoration-none">
                                         {{ csrf_field() }}
-                                        <div class="row">                                        
+                                        <div class="row">                                       
                                             <img class="col-md-6 card-img rounded-0 img-fluid" src="assets/img/software/{{strtolower($pro->image_path)}}.jpg">                                        
                                             <button class="col-md-6 btn btn-primary btn-sm" style="width: 45px; height: 45px;" class="tooltip-test" title="add to cart">
-                                                <i class="fa fa-shopping-cart"> Comprar <br>( {{$pro->price}} Bs. )</i>
+                                                <i class="fa fa-shopping-cart"> Comprar <br>( {{$pro->price}} USD )</i>
                                             </button>
                                         </div>
                                         
@@ -40,14 +42,14 @@
                                                 <span class="text-success h6"><strong>{{ $pro->name }}</strong></span>
                                                 <hr style="width: 90%;" />
                                                 <span class="pt-0"><strong>{{ $pro->slug }}</strong></span> 
-                                                <br> <a href="/sistemas" class="btn btn-warning"> Ver Detalles </a>
+                                                <br> 
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div style="height: 250px; overflow:hidden;" class="overflow-auto text-justify">{{ $pro->description }}</div>
                                             </div>
                                         </div>
-
+                                         </a>
                                         <input type="hidden" value="{{ $pro->id }}" id="id" name="id">
                                         <input type="hidden" value="{{ $pro->name }}" id="name" name="name">
                                         <input type="hidden" value="{{ $pro->price }}" id="price" name="price">
