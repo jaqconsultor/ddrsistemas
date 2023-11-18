@@ -79,12 +79,17 @@ Route::get('/pagos/{user_id}', function ($user_id) {
 
 Route::get('/pagadodecontado/{product_id}', function ($product_id) {
     $product = Product::query()->where('id', $product_id)->first();
-    return view('pagodecontado', ['product'=>$product]);
+    return view('pagodecontado', ['product'=>$product ] );
 })->name('pagadodecontado')->middleware('auth');
-
+/*
 Route::get('/pagadoacredito/{product_id}', function ($product_id) {
     $product = Product::query()->where('id', $product_id)->first();
-    return view('pagadoacredito', ['product'=>$product]);
+    return view('pagadoacredito', ['product'=>$product] );
+})->name('pagadoacredito')->middleware('auth');
+*/
+Route::post('/pagadoacredito/{product_id}', function ($product_id) {
+    $product = Product::query()->where('id', $product_id)->first();
+    return view('pagadoacredito', ['product'=>$product] );
 })->name('pagadoacredito')->middleware('auth');
 
 

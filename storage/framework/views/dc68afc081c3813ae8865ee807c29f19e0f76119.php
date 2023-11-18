@@ -1,73 +1,77 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    @component('layouts.components.header')
-    @endcomponent 
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
+    <?php $__env->startComponent('layouts.components.header'); ?>
+    <?php echo $__env->renderComponent(); ?> 
     <body class="antialiased">
         
-        @component('layouts.components.navbar')
-        @endcomponent 
+        <?php $__env->startComponent('layouts.components.navbar'); ?>
+        <?php echo $__env->renderComponent(); ?> 
 
         <!-- Start Shop -->
         
         <div class="container" style="margin-top: 80px">
             Carrito de Compra
-            @if(session()->has('success_msg'))
+            <?php if(session()->has('success_msg')): ?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ session()->get('success_msg') }}
+                    <?php echo e(session()->get('success_msg')); ?>
+
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                @endif
-            @if(session()->has('alert_msg'))
+                <?php endif; ?>
+            <?php if(session()->has('alert_msg')): ?>
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    {{ session()->get('alert_msg') }}
+                    <?php echo e(session()->get('alert_msg')); ?>
+
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-            @endif
-            @if(count($errors) > 0)
-                @foreach($errors0>all() as $error)
+            <?php endif; ?>
+            <?php if(count($errors) > 0): ?>
+                <?php $__currentLoopData = $errors0>all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        {{ $error }}
+                        <?php echo e($error); ?>
+
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
-                @endforeach
-            @endif
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php endif; ?>
             <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <br>
-                    @if(\Cart::getTotalQuantity()>0)
-                        <h4>{{ \Cart::getTotalQuantity()}} Producto(s) en el carrito</h4><br>
-                    @else
+                    <?php if(\Cart::getTotalQuantity()>0): ?>
+                        <h4><?php echo e(\Cart::getTotalQuantity()); ?> Producto(s) en el carrito</h4><br>
+                    <?php else: ?>
                         <h4>No Existen Productos en el Carrito de Compra</h4><br>
-                    @endif
+                    <?php endif; ?>
                     <br>
-                    @foreach($cartCollection as $item)
+                    <?php $__currentLoopData = $cartCollection; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="row">
                             <div class="col-lg-3">
-                                <img src="/assets/img/software/{{strtolower($item->attributes->image)}}.jpg" class="img-thumbnail" width="200" height="200">
+                                <img src="/assets/img/software/<?php echo e(strtolower($item->attributes->image)); ?>.jpg" class="img-thumbnail" width="200" height="200">
                             </div>
                             <div class="col-lg-5">
                                 <p>
-                                    <b><a href="/shop/{{ $item->attributes->slug }}">{{ $item->name }}</a></b><br>
-                                    <b>Precio: </b>{{ $item->price }} USD / {{ $item->price * 35.5 }} BS <br>
-                                    <b>Sub Total: </b>{{ \Cart::get($item->id)->getPriceSum() }} USD / {{ \Cart::get($item->id)->getPriceSum() * 35.5 }} BS <br>
-                                    {{--                                <b>With Discount: </b>${{ \Cart::get($item->id)->getPriceSumWithConditions() }}--}}
+                                    <b><a href="/shop/<?php echo e($item->attributes->slug); ?>"><?php echo e($item->name); ?></a></b><br>
+                                    <b>Precio: </b><?php echo e($item->price); ?> USD / <?php echo e($item->price * 35.5); ?> BS <br>
+                                    <b>Sub Total: </b><?php echo e(\Cart::get($item->id)->getPriceSum()); ?> USD / <?php echo e(\Cart::get($item->id)->getPriceSum() * 35.5); ?> BS <br>
+                                    
                                 </p>
                             </div>
                             <div class="col-lg-4">
                                 <div class="row">
                                     <div class="col-md-9 p-0 m-0">
-                                        <form action="{{ route('cart.update') }}" method="POST">
-                                            {{ csrf_field() }}
+                                        <form action="<?php echo e(route('cart.update')); ?>" method="POST">
+                                            <?php echo e(csrf_field()); ?>
+
                                             <div class="row">
                                                 <div class="col-6">
-                                                    <input type="hidden" value="{{ $item->id}}" id="id" name="id">
-                                                    <input type="number" class="form-control" value="{{ $item->quantity }}"
+                                                    <input type="hidden" value="<?php echo e($item->id); ?>" id="id" name="id">
+                                                    <input type="number" class="form-control" value="<?php echo e($item->quantity); ?>"
                                                     id="quantity" name="quantity" readonly>
                                                 </div>
                                                 <!-- <div class="col-4">
@@ -77,9 +81,10 @@
                                         </form>
                                     </div>
                                     <div class="col-md-2">
-                                        <form action="{{ route('cart.remove') }}" method="POST">
-                                            {{ csrf_field() }}
-                                            <input type="hidden" value="{{ $item->id }}" id="id" name="id">
+                                        <form action="<?php echo e(route('cart.remove')); ?>" method="POST">
+                                            <?php echo e(csrf_field()); ?>
+
+                                            <input type="hidden" value="<?php echo e($item->id); ?>" id="id" name="id">
                                             <button class="btn btn-dark"><i class="fa fa-trash"></i></button>
                                         </form>
                                     </div>
@@ -87,20 +92,21 @@
                             </div>
                         </div>
                         <hr>
-                    @endforeach
-                    @if(count($cartCollection)>0)
-                        <form action="{{ route('cart.clear') }}" method="POST">
-                            {{ csrf_field() }}
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <?php if(count($cartCollection)>0): ?>
+                        <form action="<?php echo e(route('cart.clear')); ?>" method="POST">
+                            <?php echo e(csrf_field()); ?>
+
                             <button class="btn btn-secondary btn-md">Vaciar Carrito</button> 
                         </form>
-                    @endif
+                    <?php endif; ?>
                 </div>
 
-                @if(count($cartCollection)>0)
+                <?php if(count($cartCollection)>0): ?>
                     <div class="col-lg-5">
                         <div class="card">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><b>Total: </b>{{ \Cart::getTotal() }} USD / {{ \Cart::getTotal() * 35.5 }} BS </li>
+                                <li class="list-group-item"><b>Total: </b><?php echo e(\Cart::getTotal()); ?> USD / <?php echo e(\Cart::getTotal() * 35.5); ?> BS </li>
                             </ul>
                         </div>
                         <!-- <br><a href="/products" class="btn btn-dark">Continue en la tienda</a> -->
@@ -112,7 +118,8 @@
                         <br><br>
 
                         <form action="/pagadoacredito/1" method="POST">
-                            {{ csrf_field() }}
+                            <?php echo e(csrf_field()); ?>
+
                             <div class="col-6">
                             <select id="cantcuotas" name="cantcuotas" class="form-select">
                                         <option value="1">
@@ -134,20 +141,20 @@
 -->
 
                     </div>
-                @endif
+                <?php endif; ?>
                 <br><br>
-                @if(\Cart::getTotalQuantity()>0)
+                <?php if(\Cart::getTotalQuantity()>0): ?>
                         <a href="/products" class="btn btn-dark">Seleccionar más Productos</a>
-                    @else
+                    <?php else: ?>
                         <a href="/products" class="btn btn-dark">Seleccione un Producto</a>
-                    @endif
+                    <?php endif; ?>
 
             </div>
             <br><br>
         </div>
         
-        @component('layouts.components.footer')
-        @endcomponent
+        <?php $__env->startComponent('layouts.components.footer'); ?>
+        <?php echo $__env->renderComponent(); ?>
 
         <!-- Start Script -->
         <script src="assets/js/jquery-1.11.0.min.js"></script>
@@ -158,3 +165,4 @@
         <!-- End Script -->
     </body>
 </html>
+<?php /**PATH C:\DDRSistemasWeb\repo\ddrsistemas\resources\views/cart.blade.php ENDPATH**/ ?>

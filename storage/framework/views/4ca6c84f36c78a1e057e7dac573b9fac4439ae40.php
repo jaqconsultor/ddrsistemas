@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    @component('layouts.components.header')
-    @endcomponent
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
+    <?php $__env->startComponent('layouts.components.header'); ?>
+    <?php echo $__env->renderComponent(); ?>
     <body class="antialiased">
         
-        @component('layouts.components.navbar')
-        @endcomponent 
+        <?php $__env->startComponent('layouts.components.navbar'); ?>
+        <?php echo $__env->renderComponent(); ?> 
         <div class="container">
     <div class="row justify-content-md-center">
                 <div class="card-body col-12">
@@ -100,10 +100,10 @@
 
         <form action="https://www.ddrsistemas.com/pasarela/Index.php" method="post">
            
-            @csrf
+            <?php echo csrf_field(); ?>
 
             <div class="input-group mb-3">
-                <input type="text" name="id" class="form-control" value="{{ $id }}" readonly >
+                <input type="text" name="id" class="form-control" value="<?php echo e($id); ?>" readonly >
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-envelope">Identificador</span>
@@ -112,7 +112,7 @@
             </div>
 
             <div class="input-group mb-3">
-                <input type="text" name="name" class="form-control" value="{{ auth()->user()->name }}" readonly >
+                <input type="text" name="name" class="form-control" value="<?php echo e(auth()->user()->name); ?>" readonly >
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-envelope"></span>
@@ -122,10 +122,10 @@
 
             <div class="input-group mb-3">
 
-                <input type="hidden" name="id" id="id" class="form-control" value="{{ $id }}" readonly>
+                <input type="hidden" name="id" id="id" class="form-control" value="<?php echo e($id); ?>" readonly>
 
-                <input type="text" name="identificationNac" class="form-control" value="{{ auth()->user()->tipocedula }}" readonly>
-                <input type="text" name="identificationNumber" class="form-control" value="{{ auth()->user()->cedula }}" readonly>
+                <input type="text" name="identificationNac" class="form-control" value="<?php echo e(auth()->user()->tipocedula); ?>" readonly>
+                <input type="text" name="identificationNumber" class="form-control" value="<?php echo e(auth()->user()->cedula); ?>" readonly>
 
                 <div class="input-group-append">
                     <div class="input-group-text">
@@ -135,7 +135,7 @@
             </div>
 
             <div class="input-group mb-3">
-                <input type="text" name="cellphone" max="11"  class="form-control" value="{{ auth()->user()->celular }}" readonly>
+                <input type="text" name="cellphone" max="11"  class="form-control" value="<?php echo e(auth()->user()->celular); ?>" readonly>
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-number">Celular</span>
@@ -144,7 +144,7 @@
             </div>
 
             <div class="input-group mb-3">
-                <input type="email" name="email" class="form-control" value="{{ auth()->user()->email }}" readonly>
+                <input type="email" name="email" class="form-control" value="<?php echo e(auth()->user()->email); ?>" readonly>
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-envelope"></span>
@@ -153,7 +153,7 @@
             </div>
 
             <div class="input-group mb-3">
-                <input type="input" name="reference" class="form-control"  value="REF {{ \Cart::getTotalQuantity()}} - {{ auth()->user()->cedula }}" readonly>
+                <input type="input" name="reference" class="form-control"  value="REF <?php echo e(\Cart::getTotalQuantity()); ?> - <?php echo e(auth()->user()->cedula); ?>" readonly>
                 <div class="input-group-append">
                    <div class="input-group-text">
                        <span class="fas fa-number">Referencia</span>
@@ -162,7 +162,7 @@
             </div>
 
                <div class="input-group mb-3">
-                <input type="input" name="password" class="form-control"  value="{{ \Cart::getTotalQuantity()}}" readonly>
+                <input type="input" name="password" class="form-control"  value="<?php echo e(\Cart::getTotalQuantity()); ?>" readonly>
                 <div class="input-group-append">
                    <div class="input-group-text">
                        <span class="fas fa-number">Cantidad</span>
@@ -171,7 +171,7 @@
             </div>
 
             <div class="input-group mb-3">
-                <input type="input" name="password" class="form-control"  value="{{ \Cart::getTotal() }}" readonly>
+                <input type="input" name="password" class="form-control"  value="<?php echo e(\Cart::getTotal()); ?>" readonly>
                 <div class="input-group-append">
                    <div class="input-group-text">
                        <span class="fas fa-number">USD</span>
@@ -180,7 +180,7 @@
             </div>
 
             <div class="input-group mb-3">
-                <input type="input" name="amount" class="form-control"  value="{{ \Cart::getTotal() * 35.5 }}" readonly>
+                <input type="input" name="amount" class="form-control"  value="<?php echo e(\Cart::getTotal() * 35.5); ?>" readonly>
                 <div class="input-group-append">
                    <div class="input-group-text">
                        <span class="fas fa-number">BS</span>
@@ -199,7 +199,7 @@
 
 
             <div class="input-group mb-3">
-                <input type="input" name="description" class="form-control"  value="Compra de {{ \Cart::getTotalQuantity()}} producto(s) de DDRSistemas" readonly>
+                <input type="input" name="description" class="form-control"  value="Compra de <?php echo e(\Cart::getTotalQuantity()); ?> producto(s) de DDRSistemas" readonly>
                 <div class="input-group-append">
                    <div class="input-group-text">
                        <span class="fas fa-number">Descripción</span>
@@ -236,8 +236,8 @@
 
         <!-- Close Banner -->
 
-        @component('layouts.components.footer')
-        @endcomponent
+        <?php $__env->startComponent('layouts.components.footer'); ?>
+        <?php echo $__env->renderComponent(); ?>
 
         <!-- Start Script -->
         <script src="assets/js/jquery-1.11.0.min.js"></script>
@@ -248,3 +248,4 @@
         <!-- End Script -->
     </body>
 </html>
+<?php /**PATH C:\DDRSistemasWeb\repo\ddrsistemas\resources\views/pagodecontado.blade.php ENDPATH**/ ?>

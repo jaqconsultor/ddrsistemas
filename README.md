@@ -1,4 +1,6 @@
 
+cd ddrsistemas && php artisan cache:clear &&  php artisan route:clear &&  php artisan config:clear &&  php artisan view:clear && php artisan optimize
+
 # Multipurpose Laravel and Livewire Application
 
 This is a part of YouTube tutorial series on building application using Laravel and Livewire.
