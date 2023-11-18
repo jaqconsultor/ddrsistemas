@@ -13,20 +13,20 @@
                                     
                                         
                 <div class="row">
-                    @foreach($products as $pro)
+                    <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="card col-6 col-md-3 col-sm-2 border-0" >
                         <div class="row">
-                        <a href="/detail/{{$pro->id}}">
-                            <!-- <img class="w-25 card-img-top img-fluid" src="assets/img/software/{{strtolower($pro->image_path)}}.jpg" alt="Card image cap"> -->
-                            <img  src="assets/img/software/{{strtolower($pro->image_path)}}.jpg?v=98" alt="Card image cap">
+                        <a href="/detail/<?php echo e($pro->id); ?>">
+                            <!-- <img class="w-25 card-img-top img-fluid" src="assets/img/software/<?php echo e(strtolower($pro->image_path)); ?>.jpg" alt="Card image cap"> -->
+                            <img  src="assets/img/software/<?php echo e(strtolower($pro->image_path)); ?>.jpg?v=98" alt="Card image cap">
                             <div class="card-body">
-                            <h5 class="card-title">{{$pro->name}}</h5>
+                            <h5 class="card-title"><?php echo e($pro->name); ?></h5>
                             </div>
                         </a>
                         </div>
                     </div>   
 
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                                           
                 </div> 
@@ -37,3 +37,4 @@
         
     </section>
     <!--End Brands-->
+<?php /**PATH C:\DDRSistemasWeb\repo\ddrsistemas\resources\views/nuestrosproductos.blade.php ENDPATH**/ ?>

@@ -12,9 +12,65 @@
                 <div class="card-body col-6">
         <p class="login-box-msg">FORMULARIO ( PAGAR A CUOTAS )</p>
 
+        <?php
+
+                    use App\Models\Transacciones;
+                    use App\Models\Cart;
+
+                    $reference = \Cart::getTotalQuantity();
+                    $cantidad = \Cart::getTotalQuantity();
+                    $totalusd = \Cart::getTotal();
+                    $totalbs = \Cart::getTotal() * 35.5;
+                    $descripcion_t = "Compra de " . \Cart::getTotalQuantity() . " producto(s) de DDRSistemas";
+
+                    use Carbon\Carbon;
+
+                    $transacciones = new Transacciones;
+    $transacciones->fe_registro = null;
+    $transacciones->ti_registro = null;
+    $transacciones->tipo_facccionado = 1;
+    $transacciones->name_user = auth()->user()->name;
+    $transacciones->id_user = auth()->user()->id;
+    $transacciones->identificationNac = auth()->user()->tipocedula;
+    $transacciones->identificationNumber = auth()->user()->cedula;
+    $transacciones->cellphone = auth()->user()->celular;
+    $transacciones->email = auth()->user()->email;
+    $transacciones->reference_t = "REF " . $reference . " - " .  auth()->user()->cedula ;
+    $transacciones->cantidad = $cantidad;
+    $transacciones->totalusd = $totalusd;
+    $transacciones->totalbs = $totalbs;
+    $transacciones->tasa = 35.5;
+    $transacciones->cantcuotas = 2;
+    $transacciones->amount = $totalbs / 2;
+    $transacciones->title = "Compra Software De DDRSistemas";
+    $transacciones->description_t = $descripcion_t;
+    $transacciones->id_transaccion = null;
+    $transacciones->usercreated_at = null;
+    $transacciones->userupdated_at = null;
+    $transacciones->created_at = null;
+    $transacciones->updated_at = null;
+    $transacciones->status = 0;
+
+        $transacciones->save();
+
+        $id = Transacciones::max('id');
+
+        ?>        
+
         <form action="https://www.ddrsistemas.com/pasarela/Index.php" method="post">
            
             @csrf
+
+            <div class="input-group mb-3">
+                <input type="text" name="id" class="form-control" value="{{ $id }}" readonly >
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-envelope">Identificador</span>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="input-group mb-3">
                 <input type="text" name="name" class="form-control" value="{{ auth()->user()->name }}" readonly >
                 <div class="input-group-append">
@@ -25,6 +81,8 @@
             </div>
 
             <div class="input-group mb-3">
+
+                <input type="hidden" name="id" id="id" class="form-control" value="{{ $id }}" readonly>
 
                 <input type="text" name="identificationNac" class="form-control" value="{{ auth()->user()->tipocedula }}" readonly>
                 <input type="text" name="identificationNumber" class="form-control" value="{{ auth()->user()->cedula }}" readonly>

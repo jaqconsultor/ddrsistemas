@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Transacciones;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Livewire\Product\ListProductos;
@@ -69,6 +70,11 @@ Route::get('/detail/{product_id}', function ($product_id) {
     $product = Product::query()->where('id', $product_id)->first();
     return view('detail', ['product'=>$product]);
 })->name('detail');
+
+Route::get('/pagos/{user_id}', function ($user_id) {
+    $product = Transacciones::query()->where('id_user', auth()->user()->id)->get();
+    return view('pagos', ['product'=>$product]);
+})->name('pagos')->middleware('auth');
 
 
 Route::get('/pagadodecontado/{product_id}', function ($product_id) {

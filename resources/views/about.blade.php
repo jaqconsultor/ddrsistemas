@@ -75,11 +75,6 @@
              
                 
         </section>
-        
-
-
-        @component('nuestrosproductos')
-        @endcomponent 
 
         @component('layouts.components.footer')
         @endcomponent

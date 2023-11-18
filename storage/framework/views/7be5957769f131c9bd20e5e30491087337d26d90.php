@@ -54,8 +54,8 @@
         <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
             <div class="flex-fill">
                 <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                    @if (auth()->check())
-                    @endif
+                    <?php if(auth()->check()): ?>
+                    <?php endif; ?>
                     <li class="nav-item">
                         <a class="nav-link" href="/about">Nosotros</a>
                     </li>
@@ -70,11 +70,11 @@
                         <a class="nav-link" href="/recursos">Recursos</a>
                     </li> 
 
-                    @if (auth()->check())
+                    <?php if(auth()->check()): ?>
                         <li class="nav-item">
                             <a class="nav-link" href="/pagos/1">Historias de Pagos</a>
                         </li> 
-                    @endif
+                    <?php endif; ?>
 
                 </ul>
                 <!-- Right navbar links -->
@@ -87,48 +87,48 @@
                                    aria-haspopup="true" aria-expanded="false"
                                 >
                                 <span class="badge badge-pill text-black">
-                                    <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i><span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">{{ \Cart::getTotalQuantity()}}</span>
+                                    <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i><span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"><?php echo e(\Cart::getTotalQuantity()); ?></span>
                                 </span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown" style="width: 450px; padding: 0px; border-color: #9DA0A2">
                                 <ul class="list-group" style="margin: 20px;">
-                                    @include('layouts.partials.cart-drop')
+                                    <?php echo $__env->make('layouts.partials.cart-drop', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                                 </ul>
 
                             </div>
                     </li>
-                    @auth
+                    <?php if(auth()->guard()->check()): ?>
 <!--                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             
-                            <img src="{{ auth()->user()->avatar_url }}" id="profileImage" class="img-circle elevation-1" alt="User Image" style="height: 30px; width: 30px;">
-                            <span class="ml-1" x-ref="username">{{ auth()->user()->name }}</span>
+                            <img src="<?php echo e(auth()->user()->avatar_url); ?>" id="profileImage" class="img-circle elevation-1" alt="User Image" style="height: 30px; width: 30px;">
+                            <span class="ml-1" x-ref="username"><?php echo e(auth()->user()->name); ?></span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('admin.profile.edit') }}" x-ref="profileLink">Profile</a>
-                            <a class="dropdown-item" href="{{ route('admin.profile.edit') }}" x-ref="changePasswordLink">Change Password</a>
-                            <a class="dropdown-item" href="{{ route('admin.settings') }}">Settings</a>
+                            <a class="dropdown-item" href="<?php echo e(route('admin.profile.edit')); ?>" x-ref="profileLink">Profile</a>
+                            <a class="dropdown-item" href="<?php echo e(route('admin.profile.edit')); ?>" x-ref="changePasswordLink">Change Password</a>
+                            <a class="dropdown-item" href="<?php echo e(route('admin.settings')); ?>">Settings</a>
                             <div class="dropdown-divider"></div>
-                            <form method="POST" action="{{ route('logout') }}">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
+                            <form method="POST" action="<?php echo e(route('logout')); ?>">
+                                <a class="dropdown-item" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
                             </form>
                         </div>
                     </li> -->
                     <li class="nav-item">
-                            {{ auth()->user()->name }}<br>
-                            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            <?php echo e(auth()->user()->name); ?><br>
+                            <a class="nav-link" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">Cerrar</a>
                     </li>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                      @csrf
+                  <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" class="d-none">
+                      <?php echo csrf_field(); ?>
                   </form>
             </div>
 
 
 
 
-                    @else
+                    <?php else: ?>
                         <li class="nav-item">
                             <a class="nav-link" href="/login">Acceso</a>
                         </li>
@@ -136,7 +136,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/register">Registro</a>
                         </li> 
-                    @endauth
+                    <?php endif; ?>
                 </ul>
 
 
@@ -187,4 +187,4 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
+    <?php /**PATH C:\DDRSistemasWeb\repo\ddrsistemas\resources\views/layouts/components/navbar.blade.php ENDPATH**/ ?>
