@@ -93,6 +93,13 @@ Route::post('/pagadoacredito/{product_id}', function ($product_id) {
 })->name('pagadoacredito')->middleware('auth');
 
 
+//https://ddrsistemas.com/pagadocorrectamente/f8775423-743e-4a89-8a1d-2d8915c7fd90
+
+Route::get('/pagadocorrectamente/{token1}', function ($token1) {
+    return view('pagadocorrectamente', ['token1'=> $token1 ] );
+})->name('pagadocorrectamente');
+
+
 //Route::get('/', [CartController::class, 'shop'])->name('shop')->middleware('auth');
 Route::get('/shop', [CartController::class, 'shop'])->name('shop');
 Route::get('/cart', [CartController::class, 'cart'])->name('cart.index');

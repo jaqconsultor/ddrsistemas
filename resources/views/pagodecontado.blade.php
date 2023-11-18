@@ -57,6 +57,8 @@
 
         $id = Transacciones::max('id');
 
+        session(['idCarrito' => $id]);
+
         $transaccionesc1 = new Transaccionesc;
 
         $transaccionesc1->usercreated_at = null;

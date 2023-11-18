@@ -58,6 +58,8 @@
 
         $id = Transacciones::max('id');
 
+        session(['idCarrito' => $id]);
+        
 // Guardar los Carritos
 
         foreach ($cartCollection as $item) {
