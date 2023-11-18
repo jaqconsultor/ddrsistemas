@@ -7,14 +7,14 @@
                          style="width: 50px; height: 50px;"
                     >
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                     <b>{{$item->name}}</b>
                     <br><small>Cant: {{$item->quantity}}</small>
                 </div>
-                <div class="col-lg-3">
-                    <p>Bs{{ \Cart::get($item->id)->getPriceSum() }}</p>
+                <div class="col-lg-4">
+                    <p>{{ \Cart::get($item->id)->getPriceSum() }} USD<br>{{ \Cart::get($item->id)->getPriceSum() * 35.41 }} Bs</p>
                 </div>
-                <hr>
+                <br><br>
                 </div>
         </li>
     @endforeach
@@ -22,7 +22,7 @@
     <li class="list-group-item">
         <div class="row">
             <div class="col-lg-10">
-                <b>Total: </b>Bs{{ \Cart::getTotal() }}
+                <b>Total: </b>{{ \Cart::getTotal() }} USD / {{ \Cart::getTotal() * 35.41 }} Bs
             </div>
             <div class="col-lg-2">
                 <form action="{{ route('cart.clear') }}" method="POST">
@@ -35,10 +35,7 @@
     <br>
     <div class="row" style="margin: 0px;">
         <a class="btn btn-info btn-sm btn-block" href="{{ route('cart.index') }}">
-            CARRITO <i class="fa fa-arrow-right"></i>
-        </a>
-        <a class="btn btn-info btn-sm btn-block" href="">
-            CHECKOUT <i class="fa fa-arrow-right"></i>
+            VERCARRITO <i class="fa fa-arrow-right"></i>
         </a>
     </div>
 @else

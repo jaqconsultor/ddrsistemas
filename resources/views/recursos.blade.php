@@ -7,7 +7,7 @@
         @component('layouts.components.navbar')
         @endcomponent 
         <div class="container">
-            <h1 class="h1">Recursos - Manuales & DEMOS</h1>
+            <h1 class="h1">Recursos - Manuales</h1>
                 <br>
                 <?php
                     use App\Models\Product;

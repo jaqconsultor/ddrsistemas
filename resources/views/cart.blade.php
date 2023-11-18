@@ -44,9 +44,8 @@
                         <h4>{{ \Cart::getTotalQuantity()}} Producto(s) en el carrito</h4><br>
                     @else
                         <h4>No Existen Productos en el Carrito de Compra</h4><br>
-                        <a href="/products" class="btn btn-dark">Seleccionar mas Productos</a>
                     @endif
-
+                    <br>
                     @foreach($cartCollection as $item)
                         <div class="row">
                             <div class="col-lg-3">
@@ -69,7 +68,7 @@
                                                 <div class="col-6">
                                                     <input type="hidden" value="{{ $item->id}}" id="id" name="id">
                                                     <input type="number" class="form-control" value="{{ $item->quantity }}"
-                                                    id="quantity" name="quantity">
+                                                    id="quantity" name="quantity" readonly>
                                                 </div>
                                                 <!-- <div class="col-4">
                                                     <button class="btn btn-secondary"><i class="fa fa-edit"></i></button>
@@ -96,6 +95,7 @@
                         </form>
                     @endif
                 </div>
+
                 @if(count($cartCollection)>0)
                     <div class="col-lg-5">
                         <div class="card">
@@ -105,13 +105,22 @@
                         </div>
                         <!-- <br><a href="/products" class="btn btn-dark">Continue en la tienda</a> -->
 
-                        <a href="https://ddrsistemas.com/pasarela/Index.php" class="btn btn-primary">Proceder a Pagar Completo</a>
+                        <!-- <a href="https://ddrsistemas.com/pasarela/Index.php" class="btn btn-primary">Proceder a Pagar Completo</a> -->
+                        <br><br>
+                        <a href="/pagadodecontado/1" class="btn btn-primary">Proceder a Pagar Completo</a>
                         <!-- <a href="https://ddrsistemas.com/pasarela/Index.php" class="btn btn-success">Proceder a Pagar</a> -->
-
-                        <a href="https://ddrsistemas.com/pasarela/Index.php" class="btn btn-info">Proceder a Pagar a Crédito</a>
+                        <br><br>
+                        <a href="/pagadoacredito/1" class="btn btn-info">Proceder a Pagar Por Cuotas</a>
 
                     </div>
                 @endif
+                <br><br>
+                @if(\Cart::getTotalQuantity()>0)
+                        <a href="/products" class="btn btn-dark">Seleccionar más Productos</a>
+                    @else
+                        <a href="/products" class="btn btn-dark">Seleccione un Producto</a>
+                    @endif
+
             </div>
             <br><br>
         </div>

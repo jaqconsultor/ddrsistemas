@@ -1,8 +1,5 @@
 <?php
 
-
-
-use App\Http\Controllers\PagadoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Livewire\Product\ListProductos;
@@ -60,8 +57,6 @@ Route::get('/recursos', function () {
 })->name('recursos');
 
 
-
-
 Route::get('/faq', function () {
     return view('faq');
 })->name('faq');
@@ -76,6 +71,17 @@ Route::get('/detail/{product_id}', function ($product_id) {
 })->name('detail');
 
 
+Route::get('/pagadodecontado/{product_id}', function ($product_id) {
+    $product = Product::query()->where('id', $product_id)->first();
+    return view('pagodecontado', ['product'=>$product]);
+})->name('pagadodecontado')->middleware('auth');
+
+Route::get('/pagadoacredito/{product_id}', function ($product_id) {
+    $product = Product::query()->where('id', $product_id)->first();
+    return view('pagadoacredito', ['product'=>$product]);
+})->name('pagadoacredito')->middleware('auth');
+
+
 //Route::get('/', [CartController::class, 'shop'])->name('shop')->middleware('auth');
 Route::get('/shop', [CartController::class, 'shop'])->name('shop');
 Route::get('/cart', [CartController::class, 'cart'])->name('cart.index');
@@ -87,8 +93,6 @@ Route::post('/clear', [CartController::class, 'clear'])->name('cart.clear');
 Route::get('listproductos', ListProductos::class)->name('listproductos');
 
 Route::get('/redireccion', Redireccion::class)->name('redireccion')->middleware('auth');
-
-
 
 Route::get('/listcategories', ListCategories::class)->name('listcategories')->middleware('auth');
 

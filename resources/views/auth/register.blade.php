@@ -40,6 +40,17 @@
             </div>
 
             <div class="input-group mb-3">
+                <select id="tipocedula" name="tipocedula" class="form-select">
+                                                <option value="V">
+                                                    V
+                                                </option>
+                                                <option value="E">
+                                                    E
+                                                </option>
+                                                <option value="P">
+                                                    P
+                                                </option>
+                                            </select>
                 <input type="text" name="cedula" class="form-control" placeholder="Cédula">
                 <div class="input-group-append">
                     <div class="input-group-text">

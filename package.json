@@ -8,8 +8,8 @@
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production",
-        "limpieza": "php artisan cache:clear &&  php artisan route:clear &&  php artisan config:clear &&  php artisan view:clear ",
-        "server": "php artisan cache:clear &&  php artisan route:clear &&  php artisan config:clear &&  php artisan view:clear && php artisan serve",
+        "limpieza": "php artisan cache:clear &&  php artisan route:clear &&  php artisan config:clear &&  php artisan view:clear && php artisan optimize ",
+        "server": "php artisan cache:clear &&  php artisan route:clear &&  php artisan config:clear &&  php artisan view:clear && php artisan optimize && php artisan serve",
         "rutas": "php artisan route:list > rutas.txt && notepad rutas.txt"
     },
     "devDependencies": {
